@@ -43,16 +43,16 @@ jobs:
 
       - name: Create and push tag
         run: |
-          git config --global user.email "andremion@gmail.com"
-          git config --global user.name "$GITHUB_ACTOR"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
 
           git tag -a $TAG -m "Release v$TAG"
           git push origin $TAG
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG: ${{ github.event.inputs.versionName }}
 
       - name: Create Release on GitHub
-        id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
