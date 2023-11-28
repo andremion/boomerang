@@ -18,5 +18,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "boomerang"
 
-include(":sample:android")
 include(":library")
+include(":sample:shared")
+include(":sample:android")

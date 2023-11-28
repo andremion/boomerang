@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "io.github.andremion.boomerang.android.sample"
+    namespace = "io.github.andremion.boomerang.sample.android"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
@@ -34,6 +34,7 @@ android {
 
 dependencies {
     implementation(projects.library)
+    implementation(projects.sample.shared)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.activity.compose)

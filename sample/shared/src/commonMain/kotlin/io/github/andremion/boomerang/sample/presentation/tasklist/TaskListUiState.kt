@@ -1,6 +1,6 @@
-package io.github.andremion.boomerang.android.sample.presentation.tasklist
+package io.github.andremion.boomerang.sample.presentation.tasklist
 
-import io.github.andremion.boomerang.android.sample.data.Task
+import io.github.andremion.boomerang.sample.data.Task
 
 data class TaskListUiState(val tasks: List<Task>) {
     companion object {

@@ -1,8 +1,8 @@
-package io.github.andremion.boomerang.android.sample.presentation.tasklist
+package io.github.andremion.boomerang.sample.presentation.tasklist
 
 import io.github.andremion.boomerang.AbsPresenter
-import io.github.andremion.boomerang.android.sample.data.Task
-import io.github.andremion.boomerang.android.sample.data.getTasks
+import io.github.andremion.boomerang.sample.data.Task
+import io.github.andremion.boomerang.sample.data.getTasks
 import kotlinx.coroutines.launch
 
 class TaskListPresenter : AbsPresenter<TaskListUiState, TaskListUiEvent, TaskListUiEffect>(

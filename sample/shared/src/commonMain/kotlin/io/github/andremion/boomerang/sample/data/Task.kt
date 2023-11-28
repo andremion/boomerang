@@ -1,4 +1,4 @@
-package io.github.andremion.boomerang.android.sample.data
+package io.github.andremion.boomerang.sample.data
 
 data class Task(
     val id: Int,

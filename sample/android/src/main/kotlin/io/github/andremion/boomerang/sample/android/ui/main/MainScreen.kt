@@ -1,4 +1,4 @@
-package io.github.andremion.boomerang.android.sample.ui.main
+package io.github.andremion.boomerang.sample.android.ui.main
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import io.github.andremion.boomerang.android.sample.R
+import io.github.andremion.boomerang.sample.android.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

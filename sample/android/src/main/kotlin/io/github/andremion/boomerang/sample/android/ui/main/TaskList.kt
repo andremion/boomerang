@@ -1,4 +1,4 @@
-package io.github.andremion.boomerang.android.sample.ui.main
+package io.github.andremion.boomerang.sample.android.ui.main
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -23,12 +23,12 @@ import androidx.compose.ui.unit.dp
 import io.github.andremion.boomerang.android.collectUiState
 import io.github.andremion.boomerang.android.launchInitialUiEvent
 import io.github.andremion.boomerang.android.onUiEffect
-import io.github.andremion.boomerang.android.sample.data.Task
-import io.github.andremion.boomerang.android.sample.presentation.tasklist.TaskListPresenter
-import io.github.andremion.boomerang.android.sample.presentation.tasklist.TaskListUiEffect
-import io.github.andremion.boomerang.android.sample.presentation.tasklist.TaskListUiEvent
-import io.github.andremion.boomerang.android.sample.presentation.tasklist.TaskListUiState
 import io.github.andremion.boomerang.android.saveablePresenter
+import io.github.andremion.boomerang.sample.data.Task
+import io.github.andremion.boomerang.sample.presentation.tasklist.TaskListPresenter
+import io.github.andremion.boomerang.sample.presentation.tasklist.TaskListUiEffect
+import io.github.andremion.boomerang.sample.presentation.tasklist.TaskListUiEvent
+import io.github.andremion.boomerang.sample.presentation.tasklist.TaskListUiState
 import kotlinx.coroutines.launch
 
 @Composable

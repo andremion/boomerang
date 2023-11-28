@@ -1,4 +1,4 @@
-package io.github.andremion.boomerang.android.sample.presentation.watercounter
+package io.github.andremion.boomerang.sample.presentation.watercounter
 
 sealed interface WaterCounterUiEvent {
     data object Init : WaterCounterUiEvent

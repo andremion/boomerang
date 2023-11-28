@@ -1,4 +1,4 @@
-package io.github.andremion.boomerang.android.sample.ui.theme
+package io.github.andremion.boomerang.sample.android.ui.theme
 
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme

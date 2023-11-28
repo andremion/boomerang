@@ -1,4 +1,4 @@
-package io.github.andremion.boomerang.android.sample.ui.main
+package io.github.andremion.boomerang.sample.android.ui.main
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,11 +15,11 @@ import androidx.compose.ui.unit.dp
 import io.github.andremion.boomerang.android.collectUiState
 import io.github.andremion.boomerang.android.launchInitialUiEvent
 import io.github.andremion.boomerang.android.onUiEffect
-import io.github.andremion.boomerang.android.sample.presentation.watercounter.WaterCounterPresenter
-import io.github.andremion.boomerang.android.sample.presentation.watercounter.WaterCounterUiEffect
-import io.github.andremion.boomerang.android.sample.presentation.watercounter.WaterCounterUiEvent
-import io.github.andremion.boomerang.android.sample.presentation.watercounter.WaterCounterUiState
 import io.github.andremion.boomerang.android.saveablePresenter
+import io.github.andremion.boomerang.sample.presentation.watercounter.WaterCounterPresenter
+import io.github.andremion.boomerang.sample.presentation.watercounter.WaterCounterUiEffect
+import io.github.andremion.boomerang.sample.presentation.watercounter.WaterCounterUiEvent
+import io.github.andremion.boomerang.sample.presentation.watercounter.WaterCounterUiState
 import kotlinx.coroutines.launch
 
 @Composable
