@@ -1,6 +1,20 @@
 # Boomerang
 A Unidirectional Data Flow (UDF) multiplatform library
 
+</br>
+
+![License MIT](https://img.shields.io/badge/License-MIT-darkgreen.svg)
+![Kotlin 1.9.20](https://img.shields.io/badge/Kotlin-1.9.20-purple.svg?style=social&logo=kotlin)
+![Jetpack Compose 1.5.4](https://img.shields.io/badge/Jetpack_Compose-1.5.4-blue.svg?style=social&logo=jetpackcompose)
+![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg?style=social&logo=swift)
+
+## Sample
+
+Android | iOS
+-|-
+<img src=docs/images/android.png height=600 /> | <img src=docs/images/ios.png height=600 />
+
+
 ## MIT License
 
     Copyright (c) [2023] André Luiz Oliveira Rêgo
