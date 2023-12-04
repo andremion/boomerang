@@ -45,7 +45,7 @@ class TaskListPresenter : AbsPresenter<TaskListUiState, TaskListUiEvent, TaskLis
 }
 
 private fun List<Task>.update(
-    taskId: Int,
+    taskId: Long,
     isChecked: Boolean
 ): List<Task> =
     map { task ->

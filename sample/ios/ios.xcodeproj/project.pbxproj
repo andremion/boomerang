@@ -14,8 +14,10 @@
 		78137FE82B1501B00021C52F /* iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78137FE72B1501B00021C52F /* iosTests.swift */; };
 		78137FF22B1501B00021C52F /* iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78137FF12B1501B00021C52F /* iosUITests.swift */; };
 		78137FF42B1501B00021C52F /* iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78137FF32B1501B00021C52F /* iosUITestsLaunchTests.swift */; };
-		7841033B2B15E3F70073D27D /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7841033A2B15E3F70073D27D /* TaskList.swift */; };
-		7841033D2B15E4100073D27D /* WaterCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7841033C2B15E4100073D27D /* WaterCounter.swift */; };
+		7841033B2B15E3F70073D27D /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7841033A2B15E3F70073D27D /* TaskListView.swift */; };
+		7841033D2B15E4100073D27D /* WaterCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7841033C2B15E4100073D27D /* WaterCounterView.swift */; };
+		7841033F2B15FC7E0073D27D /* asPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7841033E2B15FC7E0073D27D /* asPublisher.swift */; };
+		787D7D582B1777F300C944DC /* ObservablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787D7D572B1777F300C944DC /* ObservablePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +49,10 @@
 		78137FED2B1501B00021C52F /* iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		78137FF12B1501B00021C52F /* iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosUITests.swift; sourceTree = "<group>"; };
 		78137FF32B1501B00021C52F /* iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		7841033A2B15E3F70073D27D /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
-		7841033C2B15E4100073D27D /* WaterCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterCounter.swift; sourceTree = "<group>"; };
+		7841033A2B15E3F70073D27D /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
+		7841033C2B15E4100073D27D /* WaterCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterCounterView.swift; sourceTree = "<group>"; };
+		7841033E2B15FC7E0073D27D /* asPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = asPublisher.swift; sourceTree = "<group>"; };
+		787D7D572B1777F300C944DC /* ObservablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservablePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +103,10 @@
 		78137FD42B1501AF0021C52F /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				788DAB962B1DCE5E00B1C844 /* helper */,
 				78137FD52B1501AF0021C52F /* iosApp.swift */,
-				7841033A2B15E3F70073D27D /* TaskList.swift */,
-				7841033C2B15E4100073D27D /* WaterCounter.swift */,
+				7841033A2B15E3F70073D27D /* TaskListView.swift */,
+				7841033C2B15E4100073D27D /* WaterCounterView.swift */,
 				78137FD72B1501AF0021C52F /* ContentView.swift */,
 				78137FD92B1501B00021C52F /* Assets.xcassets */,
 				78137FDB2B1501B00021C52F /* ios.entitlements */,
@@ -133,6 +138,15 @@
 				78137FF32B1501B00021C52F /* iosUITestsLaunchTests.swift */,
 			);
 			path = iosUITests;
+			sourceTree = "<group>";
+		};
+		788DAB962B1DCE5E00B1C844 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				787D7D572B1777F300C944DC /* ObservablePresenter.swift */,
+				7841033E2B15FC7E0073D27D /* asPublisher.swift */,
+			);
+			path = helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,8 +300,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7841033D2B15E4100073D27D /* WaterCounter.swift in Sources */,
-				7841033B2B15E3F70073D27D /* TaskList.swift in Sources */,
+				787D7D582B1777F300C944DC /* ObservablePresenter.swift in Sources */,
+				7841033F2B15FC7E0073D27D /* asPublisher.swift in Sources */,
+				7841033D2B15E4100073D27D /* WaterCounterView.swift in Sources */,
+				7841033B2B15E3F70073D27D /* TaskListView.swift in Sources */,
 				78137FD82B1501AF0021C52F /* ContentView.swift in Sources */,
 				78137FD62B1501AF0021C52F /* iosApp.swift in Sources */,
 			);
