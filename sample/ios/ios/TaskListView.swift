@@ -10,7 +10,7 @@ struct TaskListView: View {
     @State private var alertTitle: String = ""
     
     init() {
-        presenter = ObservablePresenter(TaskListPresenter())
+        presenter = ObservablePresenter(TaskListPresenter()) // Inject presenter from any DI framework accordingly
     }
 
     var body: some View {

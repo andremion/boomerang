@@ -37,7 +37,9 @@ fun TasksList(
     snackbarHostState: SnackbarHostState
 ) {
 
-    saveablePresenter { TaskListPresenter() } collectUiState { presenter, uiState ->
+    saveablePresenter {
+        TaskListPresenter() // Inject presenter from any DI framework accordingly
+    } collectUiState { presenter, uiState ->
 
         presenter.launchInitialUiEvent { TaskListUiEvent.Init }
             .onUiEffect { uiEffect ->

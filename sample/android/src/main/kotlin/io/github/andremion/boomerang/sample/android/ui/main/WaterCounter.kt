@@ -28,7 +28,9 @@ fun WaterCounter(
     snackbarHostState: SnackbarHostState
 ) {
 
-    saveablePresenter { WaterCounterPresenter() } collectUiState { presenter, uiState ->
+    saveablePresenter {
+        WaterCounterPresenter() // Inject presenter from any DI framework accordingly
+    } collectUiState { presenter, uiState ->
 
         presenter.launchInitialUiEvent { WaterCounterUiEvent.Init }
             .onUiEffect { uiEffect ->

@@ -1,4 +1,4 @@
-# Boomerang
+# Boomerang (Work in progress)
 A Unidirectional Data Flow (UDF) multiplatform library
 
 </br>

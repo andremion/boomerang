@@ -9,7 +9,7 @@ struct WaterCounterView: View {
     @State private var alertTitle: String = ""
         
     init() {
-        presenter = ObservablePresenter(WaterCounterPresenter())
+        presenter = ObservablePresenter(WaterCounterPresenter()) // Inject presenter from any DI framework accordingly
     }
     
     var body: some View {
