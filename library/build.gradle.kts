@@ -8,6 +8,7 @@ plugins {
 
 kotlin {
     androidTarget {
+        publishLibraryVariants("release")
         compilations.all {
             kotlinOptions {
                 jvmTarget = "1.8"
@@ -60,14 +61,4 @@ android {
 mavenPublishing {
     publishToMavenCentral(SonatypeHost.S01)
     signAllPublications()
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            register<MavenPublication>("release") {
-                from(components["default"])
-            }
-        }
-    }
 }
