@@ -14,7 +14,7 @@ class SaveablePresenter<UiState, UiEvent, UiEffect> internal constructor(
         presenter.presenterScope = viewModelScope
     }
 
-    override fun toString(): String = "SaveablePresenter[$presenter]"
+    override fun toString(): String = super.toString() + "[$presenter]"
 }
 
 @Composable

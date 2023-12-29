@@ -11,7 +11,7 @@ import io.github.andremion.boomerang.onUiEffect
  * Collects the [UiState] of the [Presenter] and calls the [block] whenever a new value is emitted.
  */
 @Composable
-infix fun <UiState, UiEvent, UiEffect> Presenter<UiState, UiEvent, UiEffect>.collectUiState(
+inline infix fun <UiState, UiEvent, UiEffect> Presenter<UiState, UiEvent, UiEffect>.collectUiState(
     block: @Composable (Presenter<UiState, UiEvent, UiEffect>, UiState) -> Unit
 ) {
     val state by uiState.collectAsState()
