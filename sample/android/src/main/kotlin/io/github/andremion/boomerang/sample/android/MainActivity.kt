@@ -9,6 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import io.github.andremion.boomerang.sample.android.ui.main.MainScreen
 import io.github.andremion.boomerang.sample.android.ui.theme.BoomerangTheme
+import moe.tlaster.precompose.PreComposeApp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +21,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MainScreen()
+                    PreComposeApp {
+                        MainScreen()
+                    }
                 }
             }
         }

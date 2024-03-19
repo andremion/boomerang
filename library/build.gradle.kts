@@ -7,26 +7,16 @@ plugins {
 }
 
 kotlin {
-    androidTarget {
-        publishLibraryVariants("release")
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
-        }
-    }
     jvm()
+    androidTarget()
     iosX64()
     iosArm64()
     iosSimulatorArm64()
 
     sourceSets {
         commonMain.dependencies {
+            api(libs.precompose.viewmodel)
             implementation(libs.kotlinx.coroutines)
-        }
-        androidMain.dependencies {
-            implementation(dependencies.platform(libs.androidx.compose.bom))
-            implementation(libs.androidx.lifecycle.viewmodel.compose)
         }
     }
 }
@@ -38,14 +28,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
     }
 
     publishing {

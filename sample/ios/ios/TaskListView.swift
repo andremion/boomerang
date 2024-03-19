@@ -64,9 +64,6 @@ struct TaskListView: View {
                    // no-op
                }
             }
-            .onAppear {
-                presenter.onUiEvent(uiEvent: TaskListUiEventInit())
-            }
             .onReceive(presenter.$uiState) { uiState in
                 bindlableTasks = uiState?.tasks.transform() ?? Array()
             }

@@ -1,34 +1,32 @@
 package io.github.andremion.boomerang
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.flow.stateIn
+import moe.tlaster.precompose.viewmodel.ViewModel
+import moe.tlaster.precompose.viewmodel.viewModelScope
 
 /**
  * Abstract presenter class that:
  * - Holds a [UiState] to be consumed by the UI and updated by the concrete implementation.
  * - Handles [UiEvent] from the UI.
  * - Holds [UiEffect] to be consumed by the UI and emitted by the concrete implementation.
- * - Holds a [CoroutineScope] that should be defined at the time of the presenter injection
- * and can be used by the concrete implementation or the UI.
  */
 abstract class AbsPresenter<UiState, UiEvent, UiEffect>(initialUiState: UiState) :
+    ViewModel(),
     Presenter<UiState, UiEvent, UiEffect> {
 
-    final override lateinit var presenterScope: CoroutineScope
-
-    private val mutableUiState = MutableStateFlow(initialUiState)
-    override val uiState: StateFlow<UiState> = mutableUiState
-
-    private val mutableUiEffect = MutableSharedFlow<UiEffect>(
-        // We need to buffer to allow emitting effects out of a suspend function.
-        extraBufferCapacity = 1
+    protected val mutableUiState = MutableStateFlow(initialUiState)
+    override val uiState: StateFlow<UiState> = mutableUiState.stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(5_000),
+        initialValue = initialUiState
     )
-    override val uiEffect: MutableSharedFlow<UiEffect> = mutableUiEffect
 
-    protected fun updateUiState(block: (UiState) -> UiState) {
-        mutableUiState.update(block)
-    }
+    protected val uiEffectChannel = Channel<UiEffect>()
+    override val uiEffect: Flow<UiEffect> = uiEffectChannel.receiveAsFlow()
 }

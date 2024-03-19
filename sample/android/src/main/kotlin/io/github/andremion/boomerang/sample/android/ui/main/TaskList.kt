@@ -17,46 +17,49 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import io.github.andremion.boomerang.android.collectUiState
-import io.github.andremion.boomerang.android.launchInitialUiEvent
-import io.github.andremion.boomerang.android.onUiEffect
-import io.github.andremion.boomerang.android.saveablePresenter
 import io.github.andremion.boomerang.sample.data.Task
 import io.github.andremion.boomerang.sample.presentation.tasklist.TaskListPresenter
 import io.github.andremion.boomerang.sample.presentation.tasklist.TaskListUiEffect
 import io.github.andremion.boomerang.sample.presentation.tasklist.TaskListUiEvent
 import io.github.andremion.boomerang.sample.presentation.tasklist.TaskListUiState
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import moe.tlaster.precompose.flow.collectAsStateWithLifecycle
+import moe.tlaster.precompose.viewmodel.viewModel
 
 @Composable
 fun TasksList(
     modifier: Modifier,
     snackbarHostState: SnackbarHostState
 ) {
-
-    saveablePresenter {
+    val presenter = viewModel(TaskListPresenter::class) {
         TaskListPresenter() // Inject presenter from any DI framework accordingly
-    } collectUiState { presenter, uiState ->
+    }
 
-        presenter.launchInitialUiEvent { TaskListUiEvent.Init }
-            .onUiEffect { uiEffect ->
-                when (uiEffect) {
-                    TaskListUiEffect.ShowCongratulations -> {
-                        presenter.presenterScope.launch {
-                            snackbarHostState.showSnackbar("Congratulations! You've done all the tasks!")
-                        }
+    val uiState by presenter.uiState.collectAsStateWithLifecycle()
+
+    ScreenContent(
+        modifier = modifier,
+        uiState = uiState,
+        onUiEvent = presenter::onUiEvent
+    )
+
+    LaunchedEffect(presenter) {
+        presenter.uiEffect.onEach { uiEffect ->
+            when (uiEffect) {
+                TaskListUiEffect.ShowCongratulations -> {
+                    launch {
+                        snackbarHostState.showSnackbar("Congratulations! You've done all the tasks!")
                     }
                 }
             }
-
-        ScreenContent(
-            modifier = modifier,
-            uiState = uiState,
-            onUiEvent = presenter::onUiEvent
-        )
+        }.launchIn(this)
     }
 }
 

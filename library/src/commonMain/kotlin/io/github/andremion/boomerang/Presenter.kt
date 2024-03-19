@@ -6,5 +6,4 @@ package io.github.andremion.boomerang
 interface Presenter<UiState, UiEvent, UiEffect> :
     UiStateHolder<UiState>,
     UiEventHandler<UiEvent>,
-    UiEffectHolder<UiEffect>,
-    CoroutineScopeHolder
+    UiEffectHolder<UiEffect>

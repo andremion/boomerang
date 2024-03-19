@@ -10,44 +10,47 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import io.github.andremion.boomerang.android.collectUiState
-import io.github.andremion.boomerang.android.launchInitialUiEvent
-import io.github.andremion.boomerang.android.onUiEffect
-import io.github.andremion.boomerang.android.saveablePresenter
 import io.github.andremion.boomerang.sample.presentation.watercounter.WaterCounterPresenter
 import io.github.andremion.boomerang.sample.presentation.watercounter.WaterCounterUiEffect
 import io.github.andremion.boomerang.sample.presentation.watercounter.WaterCounterUiEvent
 import io.github.andremion.boomerang.sample.presentation.watercounter.WaterCounterUiState
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import moe.tlaster.precompose.flow.collectAsStateWithLifecycle
+import moe.tlaster.precompose.viewmodel.viewModel
 
 @Composable
 fun WaterCounter(
     modifier: Modifier,
     snackbarHostState: SnackbarHostState
 ) {
-
-    saveablePresenter {
+    val presenter = viewModel(WaterCounterPresenter::class) {
         WaterCounterPresenter() // Inject presenter from any DI framework accordingly
-    } collectUiState { presenter, uiState ->
+    }
 
-        presenter.launchInitialUiEvent { WaterCounterUiEvent.Init }
-            .onUiEffect { uiEffect ->
-                when (uiEffect) {
-                    WaterCounterUiEffect.ShowCongratulations -> {
-                        presenter.presenterScope.launch {
-                            snackbarHostState.showSnackbar("Congratulations! You've taken ${uiState.count} glasses of water today!")
-                        }
+    val uiState by presenter.uiState.collectAsStateWithLifecycle()
+
+    ScreenContent(
+        modifier = modifier,
+        uiState = uiState,
+        onUiEvent = presenter::onUiEvent
+    )
+
+    LaunchedEffect(presenter) {
+        presenter.uiEffect.onEach { uiEffect ->
+            when (uiEffect) {
+                WaterCounterUiEffect.ShowCongratulations -> {
+                    launch {
+                        snackbarHostState.showSnackbar("Congratulations! You've taken ${uiState.count} glasses of water today!")
                     }
                 }
             }
-
-        ScreenContent(
-            modifier = modifier,
-            uiState = uiState,
-            onUiEvent = presenter::onUiEvent
-        )
+        }.launchIn(this)
     }
 }
 

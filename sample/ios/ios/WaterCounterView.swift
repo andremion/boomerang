@@ -52,9 +52,6 @@ struct WaterCounterView: View {
                    // no-op
                }
             }
-            .onAppear {
-                presenter.onUiEvent(uiEvent: WaterCounterUiEventInit())
-            }
             .onReceive(presenter.$uiEffect) { uiEffect in
                 switch uiEffect {
                     case is WaterCounterUiEffectShowCongratulations:

@@ -1,6 +1,7 @@
 package io.github.andremion.boomerang.sample.presentation.watercounter
 
 import io.github.andremion.boomerang.AbsPresenter
+import kotlinx.coroutines.flow.update
 
 private const val SUCCESS_COUNT = 10
 
@@ -10,27 +11,23 @@ class WaterCounterPresenter : AbsPresenter<WaterCounterUiState, WaterCounterUiEv
 
     override fun onUiEvent(uiEvent: WaterCounterUiEvent) {
         when (uiEvent) {
-            is WaterCounterUiEvent.Init -> onInit()
             WaterCounterUiEvent.AddOneClick -> onAddOneClick()
             WaterCounterUiEvent.ClearClick -> onClearClick()
         }
     }
 
-    private fun onInit() {
-    }
-
     private fun onAddOneClick() {
-        updateUiState { state ->
+        mutableUiState.update { state ->
             val count = state.count + 1
             if (count == SUCCESS_COUNT) {
-                uiEffect.tryEmit(WaterCounterUiEffect.ShowCongratulations)
+                uiEffectChannel.trySend(WaterCounterUiEffect.ShowCongratulations)
             }
             state.copy(count = count)
         }
     }
 
     private fun onClearClick() {
-        updateUiState { state ->
+        mutableUiState.update { state ->
             state.copy(count = 0)
         }
     }
