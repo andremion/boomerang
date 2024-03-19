@@ -29,7 +29,6 @@ android {
 }
 
 dependencies {
-    implementation(projects.library)
     implementation(projects.sample.shared)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.material3)

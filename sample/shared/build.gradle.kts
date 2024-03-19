@@ -8,8 +8,8 @@ kotlin {
         iosX64(),
         iosArm64(),
         iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
+    ).forEach { target ->
+        target.binaries.framework {
             baseName = "Shared"
             isStatic = true
         }
@@ -17,7 +17,8 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(projects.library)
+            api(projects.library)
+            api(libs.precompose.viewmodel)
             implementation(libs.kotlinx.coroutines)
         }
     }

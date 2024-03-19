@@ -1,5 +1,6 @@
 # Boomerang (Work in progress)
-A Unidirectional Data Flow (UDF) multiplatform library
+A small multiplatform library to apply some conventions of Model View Intent (MVI) and Unidirectional Data Flow (UDF),
+reducing the amount of boilerplate code of handling states, events and side effects on building view models. 
 
 </br>
 
