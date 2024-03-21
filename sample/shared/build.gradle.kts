@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType
+
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kmmbridge)
@@ -5,13 +7,11 @@ plugins {
 }
 
 kmmbridge {
+    buildType.set(NativeBuildType.DEBUG)
     mavenPublishArtifacts()
     spm(projectDir.path)
     timestampVersions()
 }
-
-group = "io.github.andremion"
-version = "0.1"
 
 kotlin {
     jvm()
