@@ -17,7 +17,7 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: packageName,
-            path: "./build/XCFrameworks/debug/\(packageName).xcframework"
+            path: "./sample/shared/build/XCFrameworks/debug/\(packageName).xcframework"
         )
         ,
     ]
