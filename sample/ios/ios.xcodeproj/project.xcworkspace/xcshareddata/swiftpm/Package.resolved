@@ -1,0 +1,15 @@
+{
+  "originHash" : "f800a9631e521f0da765c3cda9c9663b5ef6e3cfb2817f50ccd261a7c407d4de",
+  "pins" : [
+    {
+      "identity" : "boomerang",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/andremion/boomerang",
+      "state" : {
+        "revision" : "5fbf5158b280edc50a048ac773c5280dc3b6e44a",
+        "version" : "0.1.2"
+      }
+    }
+  ],
+  "version" : 3
+}

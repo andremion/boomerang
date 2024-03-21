@@ -18,7 +18,6 @@
 		7841033D2B15E4100073D27D /* WaterCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7841033C2B15E4100073D27D /* WaterCounterView.swift */; };
 		7841033F2B15FC7E0073D27D /* asPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7841033E2B15FC7E0073D27D /* asPublisher.swift */; };
 		787D7D582B1777F300C944DC /* ObservablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787D7D572B1777F300C944DC /* ObservablePresenter.swift */; };
-		78FE7F522BAC694C006DF8A5 /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 78FE7F512BAC694C006DF8A5 /* Shared */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +53,6 @@
 		7841033C2B15E4100073D27D /* WaterCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterCounterView.swift; sourceTree = "<group>"; };
 		7841033E2B15FC7E0073D27D /* asPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = asPublisher.swift; sourceTree = "<group>"; };
 		787D7D572B1777F300C944DC /* ObservablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservablePresenter.swift; sourceTree = "<group>"; };
-		78FE7F502BAC67B3006DF8A5 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../shared/Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78FE7F522BAC694C006DF8A5 /* Shared in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +87,6 @@
 				78137FE62B1501B00021C52F /* iosTests */,
 				78137FF02B1501B00021C52F /* iosUITests */,
 				78137FD32B1501AF0021C52F /* Products */,
-				78FE7F4F2BAC67B3006DF8A5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,14 +149,6 @@
 			path = helper;
 			sourceTree = "<group>";
 		};
-		78FE7F4F2BAC67B3006DF8A5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				78FE7F502BAC67B3006DF8A5 /* Package.swift */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -178,7 +166,6 @@
 			);
 			name = ios;
 			packageProductDependencies = (
-				78FE7F512BAC694C006DF8A5 /* Shared */,
 			);
 			productName = ios;
 			productReference = 78137FD22B1501AF0021C52F /* Boomerang demo.app */;
@@ -253,7 +240,7 @@
 			);
 			mainGroup = 78137FC92B1501AF0021C52F;
 			packageReferences = (
-				78FE7F432BAB3C04006DF8A5 /* XCLocalSwiftPackageReference "../shared" */,
+				78FE7F532BAC92B7006DF8A5 /* XCRemoteSwiftPackageReference "boomerang" */,
 			);
 			productRefGroup = 78137FD32B1501AF0021C52F /* Products */;
 			projectDirPath = "";
@@ -627,20 +614,16 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		78FE7F432BAB3C04006DF8A5 /* XCLocalSwiftPackageReference "../shared" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../shared;
+/* Begin XCRemoteSwiftPackageReference section */
+		78FE7F532BAC92B7006DF8A5 /* XCRemoteSwiftPackageReference "boomerang" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/andremion/boomerang";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		78FE7F512BAC694C006DF8A5 /* Shared */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 78FE7F432BAB3C04006DF8A5 /* XCLocalSwiftPackageReference "../shared" */;
-			productName = Shared;
-		};
-/* End XCSwiftPackageProductDependency section */
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 78137FCA2B1501AF0021C52F /* Project object */;
 }
