@@ -1,13 +1,6 @@
-name: Swift Package Publish
+name: XCFramework Publish
 on:
   workflow_dispatch:
-    inputs:
-      versionName:
-        description: 'Version Name'
-        required: true
-
-env:
-  ORG_GRADLE_PROJECT_VERSION_NAME: ${{ github.event.inputs.versionName }}
 
 jobs:
   call-kmmbridge-publish:
@@ -17,5 +10,5 @@ jobs:
     uses: touchlab/KMMBridgeGithubWorkflow/.github/workflows/faktorybuildautoversion.yml@autoversion
     with:
       jvmVersion: 17
-      versionBaseProperty: ORG_GRADLE_PROJECT_VERSION_NAME
+      versionBaseProperty: XCFRAMEWORK_VERSION
       publishTask: kmmBridgePublish
