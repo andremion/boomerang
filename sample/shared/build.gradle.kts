@@ -6,13 +6,6 @@ plugins {
     `maven-publish`
 }
 
-kmmbridge {
-    buildType.set(NativeBuildType.DEBUG)
-    mavenPublishArtifacts()
-    spm(projectDir.path)
-    timestampVersions()
-}
-
 kotlin {
     jvm()
     listOf(
@@ -35,15 +28,15 @@ kotlin {
     }
 }
 
-publishing {
-    repositories {
-        maven {
-            name = "github"
-            url = uri("https://maven.pkg.github.com/andremion/boomerang")
-            // Setup your credentials in ~/.gradle/gradle.properties
-            // githubUsername=your_username
-            // githubPassword=your_token
-            credentials(PasswordCredentials::class)
-        }
-    }
+// Set up in your ~/.gradle/gradle.properties file
+// GITHUB_REPO=your_repo
+// GITHUB_PUBLISH_USER=your_username
+// GITHUB_PUBLISH_TOKEN=your_token
+addGithubPackagesRepository()
+
+kmmbridge {
+    buildType.set(NativeBuildType.DEBUG)
+    mavenPublishArtifacts()
+    spm(projectDir.path)
+    timestampVersions()
 }
