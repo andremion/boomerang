@@ -10,6 +10,7 @@ androidx-compose-compiler = "1.5.10"
 androidx-activity-compose = "1.8.2"
 precompose = "1.5.10"
 vanniktech-maven-publish = "0.26.0"
+kmmbridge = "0.5.2"
 
 [libraries]
 kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
@@ -25,3 +26,4 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 android-application = { id = "com.android.application", version.ref = "android-gradle" }
 android-library = { id = "com.android.library", version.ref = "android-gradle" }
 vanniktech-maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktech-maven-publish" }
+kmmbridge = { id = "co.touchlab.kmmbridge", version.ref = "kmmbridge" }

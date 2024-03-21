@@ -1,0 +1,21 @@
+name: Swift Package Publish
+on:
+  workflow_dispatch:
+    inputs:
+      versionName:
+        description: 'Version Name'
+        required: true
+
+env:
+  ORG_GRADLE_PROJECT_VERSION_NAME: ${{ github.event.inputs.versionName }}
+
+jobs:
+  call-kmmbridge-publish:
+    permissions:
+      contents: write
+      packages: write
+    uses: touchlab/KMMBridgeGithubWorkflow/.github/workflows/faktorybuildautoversion.yml@autoversion
+    with:
+      jvmVersion: 17
+      versionBaseProperty: ORG_GRADLE_PROJECT_VERSION_NAME
+      publishTask: kmmBridgePublish
